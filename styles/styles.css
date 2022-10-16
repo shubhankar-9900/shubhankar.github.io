@@ -1,0 +1,259 @@
+@font-face {
+    font-family: "Calibre";
+    src: url(/fonts/Calibre/CalibreRegular.otf) format("opentype");
+}
+
+:root {
+    --nav-height: 80px;
+    --black: rgb(31, 31, 31);
+    --white: rgba(251, 251, 251, 0.9);
+    --pale-white: rgba(251, 251, 251, 0.65);
+    --red: rgb(255, 87, 51)
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--black);
+    font-family: "Calibre", sans-serif;
+    padding-top: var(--nav-height);
+}
+
+/* HEADER */
+.nav {
+    font-family: 'Roboto Mono', monospace;
+    width: 100%;
+    height: var(--nav-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    transition: transform 0.4s;
+    background-color: var(--black);
+    padding-top: 15px;
+    z-index: 2;
+}
+
+.nav--hidden {
+    transform: translateY(calc(-1 * var(--nav-height)));
+    /* transition: 0.3s; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.navItem {
+    margin-left: 2em;
+    text-decoration: none;
+    color: var(--pale-white);
+    font-size: 14px;
+    transition-duration: 0.4s;
+}
+
+.navItem:hover {
+    color: rgb(255, 87, 51);
+}
+
+nav button {
+    background-color: transparent;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 4px;
+    color: var(--red);
+    font-size: 14px;
+    padding: 0.75rem 1rem;
+    transition-duration: 0.4s;
+    margin-left: 2em;
+    margin-right: 3em;
+}
+
+nav button:hover {
+    background-color: rgba(255, 87, 51, 0.1);
+}
+
+/* STRUCTURING */
+.wrapper {
+    display: flex;
+}
+
+main {
+    /* to prevent content overlaying navbar  */
+    z-index: 1;
+}
+
+/* LEFT BAR */
+.left {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20em;
+    padding-left: 2.5em;
+    position: fixed;
+    z-index: 2;
+}
+
+.left::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 400px;
+    margin: 0px auto;
+    background-color: var(--pale-white);
+    box-sizing: inherit;
+}
+
+
+.left a {
+    margin-bottom: 2em;
+    color: var(--pale-white);
+    transition: 0.25s;
+}
+
+.left a:hover {
+    color: var(--red);
+}
+
+/* RIGHT BAR */
+.right {
+    padding-top: 10em;
+    padding-right: 3em;
+    position: fixed;
+    right: 0;
+    z-index: 2;
+}
+
+.right::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 400px;
+    margin: 0px auto;
+    background-color: var(--pale-white);
+    right: 50%;
+    box-sizing: inherit;
+}
+
+.right a {
+    font-family: 'Roboto Mono', monospace;
+    letter-spacing: 0.1em;
+    font-size: 14px;
+    color: var(--red);
+    text-decoration: none;
+    margin-bottom: 2em;
+    writing-mode: vertical-rl;
+}
+
+
+/* INITIAL DISPLAY */
+#initial {
+    padding-top: 2em;
+    padding-left: 15em;
+    padding-bottom: 15em;
+}
+
+#initial h3 {
+    color: var(--red);
+    font-size: 18px;
+    font-family: 'PT Mono', monospace;
+}
+
+#initial h1 {
+    font-size: 75px;
+    color: var(--white);
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+#initial h2 {
+    font-size: 75px;
+    color: var(--pale-white);
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+#initial p {
+    color: var(--pale-white);
+    margin-top: 5px;
+    font-size: 18px;
+    width: 40%;
+}
+
+/* ALL INFO */
+.info{
+    padding-top: 4em;
+}
+
+.info h2{
+    font-size: 32px;
+    color: var(--white);
+    position: relative;
+}
+
+.info h2 span {
+    color: var(--red);
+    font-family: 'PT Mono', monospace;
+    font-size: 21px;
+}
+
+.info h2::after {
+    content: "";
+    height: 0.5px;
+    width: 250px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    background-color: rgba(251, 251, 251, 0.150);
+    
+}
+
+/* ABOUT */
+#about {
+    padding-left: 19em;
+}
+
+#about h2::after {
+    margin-left: 6em;
+}
+
+/* RESUME */
+#experience {
+    padding-left: 19em;
+}
+
+#experience h2::after {
+    margin-left: 6.3em;
+}
+
+/* PROJECTS */
+#projects {
+    padding-left: 19em;
+}
+
+#projects h2::after {
+    margin-left: 10.5em;
+}
+
+/* CONTACT */
+#contact {
+    padding-left: 19em;
+}
+
+#contact h2::after {
+    margin-left: 7em;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 10px;
+    color: var(--pale-white);
+    padding-bottom: 25px;
+}
+
+footer a {
+    color: var(--red);
+    text-decoration: none;
+}
