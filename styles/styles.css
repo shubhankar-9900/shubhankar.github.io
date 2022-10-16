@@ -88,8 +88,8 @@ main {
 .left {
     display: flex;
     flex-direction: column;
-    padding-top: 20em;
     padding-left: 2.5em;
+    bottom: 0px;
     position: fixed;
     z-index: 2;
 }
@@ -98,7 +98,7 @@ main {
     content: "";
     display: block;
     width: 1px;
-    height: 400px;
+    height: 110px;
     margin: 0px auto;
     background-color: var(--pale-white);
     box-sizing: inherit;
@@ -117,10 +117,10 @@ main {
 
 /* RIGHT BAR */
 .right {
-    padding-top: 10em;
     padding-right: 3em;
     position: fixed;
-    right: 0;
+    right: 0px;
+    bottom: 0px;
     z-index: 2;
 }
 
@@ -128,10 +128,9 @@ main {
     content: "";
     display: block;
     width: 1px;
-    height: 400px;
+    height: 110px;
     margin: 0px auto;
     background-color: var(--pale-white);
-    right: 50%;
     box-sizing: inherit;
 }
 
@@ -148,26 +147,26 @@ main {
 
 /* INITIAL DISPLAY */
 #initial {
-    padding-top: 2em;
+    padding-top: 4em;
     padding-left: 15em;
-    padding-bottom: 15em;
+    padding-bottom: 15em; 
 }
 
 #initial h3 {
     color: var(--red);
-    font-size: 18px;
+    font-size: clamp(16px,5vw,18px);
     font-family: 'PT Mono', monospace;
 }
 
 #initial h1 {
-    font-size: 75px;
+    font-size: clamp(40px, 8vw, 80px);
     color: var(--white);
     margin-top: 30px;
     margin-bottom: 0;
 }
 
 #initial h2 {
-    font-size: 75px;
+    font-size: clamp(40px, 8vw, 80px);
     color: var(--pale-white);
     margin-top: 5px;
     margin-bottom: 0;
@@ -176,7 +175,7 @@ main {
 #initial p {
     color: var(--pale-white);
     margin-top: 5px;
-    font-size: 18px;
+    font-size: 20px;
     width: 40%;
 }
 
