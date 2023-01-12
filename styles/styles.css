@@ -1,3 +1,9 @@
+*, ::before, ::after {
+    /* box-sizing: inherit; */
+    box-sizing: border-box;
+    -webkit-box-sizing: inherit;
+}
+
 @font-face {
     font-family: "Calibre";
     src: url(/fonts/Calibre/CalibreRegular.otf) format("opentype");
@@ -7,8 +13,31 @@
     --nav-height: 80px;
     --black: rgb(31, 31, 31);
     --white: rgba(251, 251, 251, 0.9);
-    --pale-white: rgba(251, 251, 251, 0.65);
-    --red: rgb(255, 87, 51)
+    --off-white: rgba(251, 251, 251, 0.8);
+    --pale-white: rgba(251, 251, 251, 0.7);
+    /* --red: rgb(255, 87, 51); */
+    --red: rgb(255, 49, 49);
+    --dark-red: rgba(255, 49, 49, 0.1);
+    --roboto: 'Roboto Mono', monospace;
+    --pt-mono: 'PT Mono', monospace;
+    /* --surface-color: rgb(250, 31, 31); */
+    --surface-color: rgb(218, 25, 25);
+    --curve: 40;
+  
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(251, 251, 251, 0.4);
+    border: 3px solid var(--black);
+    border-radius: 10px;
+}
+
+::selection{
+    background-color: rgb(78, 74, 74);
 }
 
 html {
@@ -18,12 +47,13 @@ html {
 body {
     background-color: var(--black);
     font-family: "Calibre", sans-serif;
+    font-weight: 400;
     padding-top: var(--nav-height);
 }
 
 /* HEADER */
 .nav {
-    font-family: 'Roboto Mono', monospace;
+    font-family: var(--roboto);
     width: 100%;
     height: var(--nav-height);
     position: fixed;
@@ -33,16 +63,14 @@ body {
     align-items: center;
     justify-content: flex-end;
     transition: transform 0.4s;
-    background-color: var(--black);
-    padding-top: 15px;
+    background-color: rgb(31, 31, 31,0.8);
     z-index: 2;
+    backdrop-filter: blur(10px);
 }
 
 .nav--hidden {
     transform: translateY(calc(-1 * var(--nav-height)));
-    /* transition: 0.3s; */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .navItem {
@@ -54,7 +82,7 @@ body {
 }
 
 .navItem:hover {
-    color: rgb(255, 87, 51);
+    color: var(--red);
 }
 
 nav button {
@@ -65,14 +93,16 @@ nav button {
     color: var(--red);
     font-size: 14px;
     padding: 0.75rem 1rem;
-    transition-duration: 0.4s;
     margin-left: 2em;
     margin-right: 3em;
+    cursor: pointer;
+    transition-duration: 0.4s;
 }
 
-nav button:hover {
-    background-color: rgba(255, 87, 51, 0.1);
+nav button:hover{
+    background-color: var(--dark-red);
 }
+
 
 /* STRUCTURING */
 .wrapper {
@@ -113,11 +143,13 @@ main {
 
 .left a:hover {
     color: var(--red);
+    transform: translateY(-4px);
+    
 }
 
 /* RIGHT BAR */
 .right {
-    padding-right: 3em;
+    margin-right: 2.5em;
     position: fixed;
     right: 0px;
     bottom: 0px;
@@ -135,27 +167,34 @@ main {
 }
 
 .right a {
-    font-family: 'Roboto Mono', monospace;
+    font-family: var(--roboto);
     letter-spacing: 0.1em;
     font-size: 14px;
+    /* color: var(--pale-white); */
     color: var(--red);
+    transition: 0.25s;
     text-decoration: none;
     margin-bottom: 2em;
     writing-mode: vertical-rl;
+}
+
+.right a:hover {
+    /* color: var(--red); */
+    transform: translateY(-6px);
 }
 
 
 /* INITIAL DISPLAY */
 #initial {
     padding-top: 4em;
-    padding-left: 15em;
-    padding-bottom: 15em; 
+    padding-left: 14em;
+    padding-bottom: 6em;
 }
 
 #initial h3 {
     color: var(--red);
     font-size: clamp(16px,5vw,18px);
-    font-family: 'PT Mono', monospace;
+    font-family: var(--pt-mono);
 }
 
 #initial h1 {
@@ -176,12 +215,13 @@ main {
     color: var(--pale-white);
     margin-top: 5px;
     font-size: 20px;
-    width: 40%;
+    max-width: 540px;
 }
 
 /* ALL INFO */
 .info{
     padding-top: 4em;
+    padding-bottom: 6em;
 }
 
 .info h2{
@@ -192,8 +232,8 @@ main {
 
 .info h2 span {
     color: var(--red);
-    font-family: 'PT Mono', monospace;
-    font-size: 21px;
+    font-family: var(--pt-mono);
+    font-size: 19px;
 }
 
 .info h2::after {
@@ -204,50 +244,267 @@ main {
     position: absolute;
     top: 50%;
     background-color: rgba(251, 251, 251, 0.150);
-    
+}
+
+.info p{
+    color: var(--pale-white);
+    margin-top: 5px;
+    font-size: 20px;
+    width: 50%;
 }
 
 /* ABOUT */
 #about {
-    padding-left: 19em;
+    padding-left: 17.5em;
+    padding-right: 7em;
 }
 
 #about h2::after {
     margin-left: 6em;
 }
 
+.about-wrapper{
+    display: grid;
+    grid-template-columns: repeat(2,minmax(300px,1fr));
+    gap: 30px;
+}
+
+
+#about p{
+    width: 100%;
+}
+
+#about img{
+    width: 325px;
+    height: auto;
+}
+
 /* RESUME */
 #experience {
-    padding-left: 19em;
+    padding-left: 14em;
+    padding-bottom: 33em;
 }
 
 #experience h2::after {
     margin-left: 6.3em;
 }
 
+.cols{
+    position: relative;
+    padding-top: 1.3em;
+}
+
+.col{
+    float: left;
+    width: 50%;
+}
+
+.col-item{
+    position: relative;
+    padding: 0 30px 30px 30px;
+}
+
+.col-item::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: var(--red);
+}
+
+.row2::before{
+    height: 0%;
+}
+
+.col-item span{
+    padding: 0.3em 0.4em 0.3em; 
+    color: var(--red);
+    font-family: var(--pt-mono);
+    font-weight: bold;
+    font-size: 14px;
+    border: 1px solid var(--red);
+    position: relative;
+    top: -10px;
+    margin: 0 0 5px 0;
+    display: inline-block;
+    height: 20px;
+    line-height: 18px;
+}
+
+.col-item span::before{
+    content: '';
+    width: 29px;
+    height: 1px;
+    position: absolute;
+    left: -30px;
+    top: 9px;
+    background: var(--red);
+}
+
+.col-item h3{
+    color: var(--off-white);
+    margin-top: 10px;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+}
+
+.col-item p{
+    width: 80%;
+}
+
+
 /* PROJECTS */
 #projects {
-    padding-left: 19em;
+    padding-left: 17em;
+    padding-right: 10em;
 }
 
 #projects h2::after {
     margin-left: 10.5em;
 }
 
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(210px, 1fr));
+    gap: 2rem;
+    margin: 4rem 3vw;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  .card {
+    position: relative;
+    display: block;
+    height: 100%;
+    border-radius: calc(var(--curve) * 1px);
+    overflow: hidden;
+    text-decoration: none;
+  }
+  
+  .card__image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .card__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    border-radius: calc(var(--curve) * 1px);
+    background-color: var(--surface-color);
+    transform: translateY(100%);
+    transition: 0.2s ease-in-out;
+  }
+  
+  .card:hover .card__overlay {
+    transform: translateY(0);
+  }
+  
+  .card__header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    padding: 2em 2em 1.3em;
+    border-radius: calc(var(--curve) * 1px) 0 0 0;
+    background-color: var(--surface-color);
+    transform: translateY(-100%);
+    transition: 0.2s ease-in-out;
+    margin-bottom: 10px;
+  }
+  
+  .card__arc {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    z-index: 1;
+  }
+  
+  .card__arc path {
+    fill: var(--surface-color);
+    d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+  }
+  
+  .card:hover .card__header {
+    transform: translateY(0);
+  }
+  
+  
+  .card__title {
+    font-size: 1.3em;
+    margin: 0 0 0.3em;
+    color: var(--off-white);
+  }
+  
+  .card__status {
+    font-size: 0.75em;
+    font-family: var(--roboto);
+    color: var(--pale-white);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+  }
+
+
 /* CONTACT */
 #contact {
-    padding-left: 19em;
+    /* padding-left: 19em; */
+    text-align: center;
+    padding-bottom: 15em;
 }
 
+#contact h2{
+    font-size: 50px;
+    margin-bottom: 0;
+}
+
+#contact span{
+    font-size: 24px;
+}
+
+/* TODO lines*/
 #contact h2::after {
-    margin-left: 7em;
+    width: 0px;
+}
+
+#contact p{
+    display: inline-block;
+    text-align: center;
+    width: 35%;
+    font-size: 21px;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+#contact button{
+    font-family: var(--roboto);
+    background-color: transparent;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 5px;
+    color: var(--red);
+    font-size: 16px;
+    padding: 1.25rem 1.5rem;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+#contact button:hover {
+    background-color: var(--dark-red);
 }
 
 /* FOOTER */
 footer {
     text-align: center;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 10px;
+    font-family: var(--roboto);
+    font-size: 10.5px;
     color: var(--pale-white);
     padding-bottom: 25px;
 }
