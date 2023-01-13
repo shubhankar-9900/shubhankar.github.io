@@ -290,13 +290,19 @@ main {
 }
 
 .cols{
-    position: relative;
+    /* position: relative; */
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
     padding-top: 1.3em;
 }
 
 .col{
-    float: left;
-    width: 50%;
+    /* float: left; */
+    width: 100%;
 }
 
 .col-item{
