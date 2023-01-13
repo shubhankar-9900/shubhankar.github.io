@@ -292,11 +292,11 @@ main {
     /* position: relative; */
     display: grid;
     grid-template-columns: repeat(2, minmax(300px, 1fr));
-    gap: 30px;
     margin: 0;
     padding: 0;
     list-style-type: none;
     padding-top: 1.3em;
+    padding-right: 2em;
 }
 
 .col{
