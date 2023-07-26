@@ -226,13 +226,14 @@ main {
     max-width: 540px;
 }
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 450px) {
     #initial{
         padding: 0;
-        justify-content: center;
-        padding-left: 8em;
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        padding-left: 8em;
+        margin-top: -25em;
         height: 45%;
     }
 
