@@ -122,6 +122,7 @@ main {
     z-index: 1;
 }
 
+
 /* LEFT BAR */
 .left {
     display: flex;
@@ -153,6 +154,13 @@ main {
     color: var(--red);
     transform: translateY(-4px);
     
+}
+
+@media screen and (max-width: 450px) {
+    .left{
+        display: none;
+    }
+
 }
 
 /* RIGHT BAR */
@@ -191,6 +199,11 @@ main {
     transform: translateY(-6px);
 }
 
+@media screen and (max-width: 450px) {
+    .right{
+        display: none;
+    }
+}
 
 /* INITIAL DISPLAY */
 #initial {
@@ -464,10 +477,19 @@ main {
 @media screen and (max-width: 450px) {
     #experience {
         padding-left: 5em;
+        height: 38%;
     }
     /* #experience h2::after {
         margin-left: 6.3em;
     } */    
+
+    .col-item span{
+        font-size: 2rem;
+    }
+
+    .col-item h3{
+        font-size: 3rem;
+    }
 }
 
 
@@ -568,6 +590,14 @@ main {
     overflow: hidden;
   }
 
+  @media screen and (max-width: 450px) {
+    #projects {
+        /* padding-left: 5em; */
+        height: 25%;
+    }
+    
+  }
+
 
 /* CONTACT */
 #contact {
@@ -616,6 +646,39 @@ main {
     background-color: var(--dark-red);
 }
 
+@media screen and (max-width: 450px) {
+    #contact {
+        height:12%;
+    }
+    
+    #contact h2{
+        font-size: 5rem;
+    }
+    
+    #contact span{
+        font-size: 3.5rem;
+    }
+    
+    /* TODO lines*/
+    #contact h2::after {
+        width: 0px;
+    }
+    
+    #contact p{
+        width: 85%;
+        font-size: 2.5rem;
+    }
+    
+    #contact button{
+        border: 1.5px solid;
+        font-size: 2.8rem;
+        padding: 1.25em 1.5em;
+        border-radius: 20px;
+    }
+    
+}
+
+
 /* FOOTER */
 footer {
     text-align: center;
@@ -628,4 +691,13 @@ footer {
 footer a {
     color: var(--red);
     text-decoration: none;
+}
+
+@media screen and (max-width: 450px) {
+    
+    footer {
+        font-size: 1.5rem;
+        padding-bottom: 3rem;
+    }
+    
 }
