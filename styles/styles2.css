@@ -35,6 +35,10 @@ body {
   background-color: var(--black);
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 /* 
 **********
 SCROLL BAR
@@ -68,8 +72,9 @@ section {
 }
 
 @media only screen and (min-width: 768px) {
-  aside {
+  .sidebar-container {
     flex: 1;
+    position: relative;
   }
 
   main {
@@ -79,6 +84,7 @@ section {
 
 @media only screen and (max-width: 768px) {
   .wrapper {
+    display: flex;
     flex-direction: column-reverse;
   }
 
@@ -223,14 +229,36 @@ NAVBAR
 }
 
 .mobile-nav a {
+  font-family: var(--roboto);
+  font-size: 20px;
   text-decoration: none;
   display: block;
-  width: 100%;
   text-align: center;
   padding: 12px 16px;
-  margin-bottom: 16px;
-  width: fit-content;
+  margin-bottom: 20px;
+  color: var(--pale-white);
 }
+
+.mobile-nav a:hover {
+  color: var(--red);
+}
+
+.mobile-nav button {
+  background-color: transparent;
+  border: 1px solid;
+  border-radius: 4px;
+  color: var(--red);
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  font-size: 20px;
+
+}
+
+.mobile-nav button:hover{
+  background-color: var(--dark-red);
+}
+
 
 /* NAVBAR MEDIA QUERIES */
 
@@ -352,11 +380,7 @@ SECTIONS
   .info h2::after {
     width: 100px;
   }
-  
-  .info p{
-    font-size: 15px;
-  }
-  
+    
 }
 
 /*
@@ -419,9 +443,9 @@ ABOUT
 EXPERIENCE
 **********
 */
-.exp{
-  /* padding:  0 3em; */
-}
+/* .exp{
+  padding:  0 3em;
+} */
 .exp h2::after{
   margin-left: 200px;
 }  
@@ -431,7 +455,7 @@ EXPERIENCE
     padding: 0;
   }
   .exp h2::after{
-    margin-left: 160px;
+    margin-left: 165px;
   }  
   
 }
@@ -522,25 +546,77 @@ PROJECTS
 
 @media only screen and (max-width: 768px) {
   .projects h2::after{
-    width: 0;
+    margin-left: 275px;
+    width: 70px;
   }
   
 }
+
+/* 
+********
+SIDEBARS
+********
+*/
+.sidebar a{
+  transition: 0.25s;
+  color: var(--pale-white);
+}
+
+.sidebar a:hover {
+  color: var(--red);
+}
+
+@media only screen and (min-width: 768px) {
+  .sidebar{
+    position: fixed;
+    bottom: 0;
+  }
+  
+  .sidebar::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 15vh;
+    margin: 0 auto;
+    background-color: var(--pale-white);
+    margin-top: 1em;
+  }
+    
+}
+
 
 /* 
 *****
 LINKS
 *****
 */
+/* MOBILE VIEW */
 .links {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-@media only screen and (max-width: 768px) {
+.links a{
+  padding: 1rem;
+}
+
+/* DESKTOP VIEW */
+@media only screen and (min-width: 768px) {
   .links {
-    flex-direction: row;
+    flex-direction: column;
+    left: 5%; 
+  }  
+
+  .links a{
+    padding: 0.8rem 0;
   }
+  
+  .links a:hover{
+    transform: translateY(-4px);
+  }
+  
 }
 
 /* 
@@ -548,8 +624,20 @@ LINKS
 EMAIL
 *****
 */
+.email{
+  right: 5%;
+}
+
 .email a {
   writing-mode: vertical-rl;
+  text-decoration: none;
+  font-family: var(--roboto);
+  letter-spacing: 0.1em;
+  font-size: 12.5px;
+}
+
+.email a:hover{
+  transform: translateY(-6px);
 }
 
 @media only screen and (max-width: 768px) {

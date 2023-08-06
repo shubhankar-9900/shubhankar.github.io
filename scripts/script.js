@@ -28,5 +28,16 @@ window.onload = () => {
   menu_btn.addEventListener("click", function () {
     menu_btn.classList.toggle("is-active");
     mobile_menu.classList.toggle("is-active");
+    nav.classList.toggle("at-top");
+    document.body.classList.toggle("no-scroll");
+  });
+
+  const navItems = document.querySelectorAll(".navItem");
+  navItems.forEach((navItem) => {
+    navItem.addEventListener("click", () => {
+      document.body.classList.remove("no-scroll");
+      menu_btn.classList.remove("is-active");
+      mobile_menu.classList.remove("is-active");
+    });
   });
 };
