@@ -116,7 +116,7 @@ NAVBAR
 }
 
 .logo {
-  width: 60px;
+  width: 55px;
 }
 
 .nav ul {
@@ -328,7 +328,7 @@ HERO
   
   .hero p{
     margin-top: 2rem;
-    font-size: 1em;
+    font-size: 20px;
     max-width: 95%;
   }
   
@@ -339,6 +339,9 @@ HERO
 SECTIONS
 ********
 */
+.info{
+  padding-top: var(--nav-height);
+}
 
 .info h2 span {
   color: var(--red);
@@ -415,7 +418,7 @@ ABOUT
 /* DESKTOP VIEW */
 @media only screen and (min-width: 768px) {
   .about{
-    padding: 0 3em;
+    padding: var(--nav-height) 3em;
   }
   
   .about-wrapper{
@@ -443,17 +446,11 @@ ABOUT
 EXPERIENCE
 **********
 */
-/* .exp{
-  padding:  0 3em;
-} */
 .exp h2::after{
   margin-left: 200px;
 }  
 
 @media only screen and (max-width: 768px) {
-  .exp{
-    padding: 0;
-  }
   .exp h2::after{
     margin-left: 165px;
   }  
@@ -553,6 +550,76 @@ PROJECTS
 }
 
 /* 
+*******
+CONTACT
+*******
+*/
+
+.contact{
+  min-height: 85vh; 
+  text-align: center; 
+}
+
+.contact span{
+  font-size: 24px;
+}
+
+.contact h2{
+  font-size: 50px;
+  margin-bottom: 0;
+}
+
+.contact h2::after {
+  width: 0px;
+}
+
+.contact p{
+  max-width: 45%;
+  display: inline-block;
+  text-align: center;
+  font-size: 21px;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.contact button{
+  font-family: var(--roboto);
+  background-color: transparent;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 5px;
+  color: var(--red);
+  font-size: 16px;
+  padding: 1.25rem 1.5rem;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.contact button:hover {
+  background-color: var(--dark-red);
+}
+
+@media only screen and (max-width: 768px) {
+  .contact{
+    min-height: 75vh;
+  }
+
+  .contact h2{
+    font-size: 40px;
+  }
+
+  .contact p{
+    max-width: 95%;
+  }
+
+  .contact button{
+    font-size: 18px;
+  }
+
+  
+}
+
+/* 
 ********
 SIDEBARS
 ********
@@ -599,7 +666,7 @@ LINKS
 }
 
 .links a{
-  padding: 1rem;
+  padding: 0.3rem 1rem;
 }
 
 /* DESKTOP VIEW */
@@ -644,4 +711,18 @@ EMAIL
   .email{
     display: none;
   }
+}
+
+/* 
+******
+FOOTER
+******
+*/
+
+footer {
+  text-align: center;
+  font-family: var(--roboto);
+  font-size: 11px;
+  color: var(--pale-white);
+  padding: 1rem;
 }
