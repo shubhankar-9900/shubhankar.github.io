@@ -373,7 +373,7 @@ SECTIONS
 
 @media only screen and (max-width: 768px) {
   .info h2 span {
-    font-size: 12px;
+    font-size: 15px;
   }
   
   .info h2{
@@ -561,7 +561,7 @@ CONTACT
 }
 
 .contact span{
-  font-size: 24px;
+  font-size: 30px;
 }
 
 .contact h2{
@@ -603,6 +603,10 @@ CONTACT
   .contact{
     min-height: 75vh;
   }
+
+  .contact h2 span{
+    font-size: 20px;
+  }  
 
   .contact h2{
     font-size: 40px;
