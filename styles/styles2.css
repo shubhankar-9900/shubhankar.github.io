@@ -26,6 +26,9 @@ html {
 
   --roboto: 'Roboto Mono', monospace;
   --pt-mono: 'PT Mono', monospace;
+
+  --surface-color: rgb(218, 25, 25);
+  --curve: 40;
 }
 
 body {
@@ -541,13 +544,120 @@ PROJECTS
   margin-left: 330px;
 }
 
-@media only screen and (max-width: 768px) {
-  .projects h2::after{
-    margin-left: 275px;
-    width: 70px;
+.cards {
+  padding: 0;
+  list-style-type: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .cards{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(210px, 1fr));
+    gap: 2rem;
+    margin: 4rem 3vw;
+    padding: 0 50px;
+  
   }
   
 }
+
+.card {
+  position: relative;
+  display: block;
+  height: 100%;
+  border-radius: calc(var(--curve) * 1px);
+  overflow: hidden;
+  text-decoration: none;
+  
+}
+
+.card__image {
+  width: 100%;
+  height: auto;
+}
+
+.card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  border-radius: calc(var(--curve) * 1px);
+  background-color: var(--surface-color);
+  transform: translateY(100%);
+  transition: 0.2s ease-in-out;
+}
+
+.card:hover .card__overlay {
+  transform: translateY(0);
+}
+
+.card__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 2em 2em 1.3em;
+  border-radius: calc(var(--curve) * 1px) 0 0 0;
+  background-color: var(--surface-color);
+  transform: translateY(-100%);
+  transition: 0.2s ease-in-out;
+  margin-bottom: 10px;
+}
+
+.card__arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  z-index: 1;
+}
+
+.card__arc path {
+  fill: var(--surface-color);
+  d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+}
+
+.card:hover .card__header {
+  transform: translateY(0);
+}
+
+
+.card__title {
+  font-size: 1.3em;
+  margin: 0 0 0.3em;
+  color: var(--off-white);
+}
+
+.card__status {
+  font-size: 0.75em;
+  font-family: var(--roboto);
+  color: var(--pale-white);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+/* TODO */
+
+@media only screen and (max-width: 768px) {
+  .cards{
+    padding: 0 30px;
+  }
+
+  .projects h2::after{
+    margin-left: 285px;
+    width: 65px;
+  }
+
+  .card{
+    margin: 1.5rem 0;
+  }
+  
+}
+
 
 /* 
 *******
@@ -602,6 +712,12 @@ CONTACT
 @media only screen and (max-width: 768px) {
   .contact{
     min-height: 75vh;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-top: var(--nav-height); */
   }
 
   .contact h2 span{
@@ -726,7 +842,7 @@ FOOTER
 footer {
   text-align: center;
   font-family: var(--roboto);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--pale-white);
   padding: 1rem;
 }
