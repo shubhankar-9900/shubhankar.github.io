@@ -40,4 +40,42 @@ window.onload = () => {
       mobile_menu.classList.remove("is-active");
     });
   });
+
+  // DEFAULT VIEW EXP
+  const defaultCompanyName = 'rf-suny';
+  
+  const defaultCompany =  document.querySelector(`button.company-name[name="${defaultCompanyName}"]`);
+  defaultCompany.classList.add('active');
+
+  const defaultDescription = document.getElementById(defaultCompanyName);
+  if (defaultDescription) {
+    defaultDescription.style.display = 'block';
+  }
+
+  // EXP
+  const companyItems = document.querySelectorAll(".company-name");
+  const jobRoles = document.querySelectorAll(".job-role");
+
+  companyItems.forEach((item) => {
+
+    item.addEventListener("click", () => {
+
+      companyItems.forEach((company) => {
+        company.classList.remove('active');
+      });
+      
+      item.classList.add('active');
+
+      jobRoles.forEach((description) => {
+        description.style.display = "none";
+      });
+
+      const selectedCompany = item.getAttribute("name");
+      const selectedDescription = document.getElementById(selectedCompany);
+      setTimeout(function() {      
+        selectedDescription.style.display = "block";
+      }, 100); 
+
+    });
+  });
 };
