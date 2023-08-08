@@ -770,6 +770,7 @@ CONTACT
 @media only screen and (max-width: 768px) {
   .contact {
     min-height: 75vh;
+    margin-top: 150px;
   }
 
   .contact h2 span {
