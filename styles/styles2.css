@@ -860,6 +860,13 @@ LINKS
   }
 }
 
+@media only screen and (min-width: 769px) and (max-width: 1200px){
+  .links {
+    left: 3%;
+  }  
+}
+
+
 /* 
 *****
 EMAIL
@@ -867,6 +874,12 @@ EMAIL
 */
 .email {
   right: 5%;
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1200px){
+  .email {
+    right: 3%;
+  }  
 }
 
 .email a {
