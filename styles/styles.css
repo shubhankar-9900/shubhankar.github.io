@@ -37,7 +37,8 @@ body {
   font-family: "Calibre", sans-serif;
   font-weight: 400;
   background-color: var(--black);
-  -webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
 }
 
 .no-scroll {
