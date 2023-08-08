@@ -88,7 +88,7 @@ section {
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
   .wrapper {
     display: flex;
     flex-direction: column-reverse;
@@ -265,7 +265,7 @@ NAVBAR
 
 /* NAVBAR MEDIA QUERIES */
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
   .nav {
     display: none;
   }
@@ -320,7 +320,7 @@ HERO
   max-width: 55%;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
   .hero h3 {
     margin-bottom: 1.3em;
   }
@@ -374,7 +374,7 @@ SECTIONS
   font-size: 20px;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
   .info h2 span {
     font-size: 15px;
   }
@@ -542,7 +542,7 @@ EXPERIENCE
 }
 
 /* EXP MOBILE VIEW */
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
   .exp {
     padding: var(--nav-height) 0 0 0;
     min-height: 90vh;
@@ -704,7 +704,7 @@ PROJECTS
 }
 
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
   .cards {
     padding: 0 30px;
   }
@@ -769,7 +769,7 @@ CONTACT
   background-color: var(--dark-red);
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
   .contact {
     min-height: 75vh;
     margin-top: 150px;
@@ -890,7 +890,7 @@ EMAIL
   transform: translateY(-6px);
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
   .email {
     display: none;
   }
