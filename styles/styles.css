@@ -37,6 +37,7 @@ body {
   font-family: "Calibre", sans-serif;
   font-weight: 400;
   background-color: var(--black);
+  -webkit-text-size-adjust: 100%;
 }
 
 .no-scroll {
