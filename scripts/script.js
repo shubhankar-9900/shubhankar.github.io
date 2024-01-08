@@ -42,7 +42,7 @@ window.onload = () => {
   });
 
   // DEFAULT VIEW EXP
-  const defaultCompanyName = 'rf-suny';
+  const defaultCompanyName = 'donovan';
   
   const defaultCompany =  document.querySelector(`button.company-name[name="${defaultCompanyName}"]`);
   defaultCompany.classList.add('active');
