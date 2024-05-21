@@ -42,7 +42,7 @@ window.onload = () => {
   });
 
   // DEFAULT VIEW EXP
-  const defaultCompanyName = 'donovan';
+  const defaultCompanyName = 'jpmorgan';
   
   const defaultCompany =  document.querySelector(`button.company-name[name="${defaultCompanyName}"]`);
   defaultCompany.classList.add('active');
